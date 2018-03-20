@@ -56,7 +56,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (cbuf != (BYTE*)NULL) free(cbuf);
 		cbuf = (BYTE *)malloc(size);
 		if (cbuf == (BYTE*)NULL) {
-			_tprintf(_T("Memory allocation error! size=%ld"), size);
+			_tprintf(_T("Memory allocation error! size=%I64d"), size);
 			break;
 		}
 		res = fread(cbuf, sizeof(BYTE), size, fpr);
@@ -66,7 +66,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			_tprintf(_T("%13I64d bytes (%3.0f%%) read.\r"), pos, ((long double)pos / total_size) * 100);
 		}
 		else {
-			_tprintf(_T("\nERROR!! PCP header tells to read %ld bytes but actually could read %ld bytes.\n"), size, res);
+			_tprintf(_T("\nERROR!! PCP header tells to read %I64d bytes but actually could read %I64d bytes.\n"), size, res);
 			break;
 		}
 	}
